@@ -126,7 +126,7 @@ export default function Hero() {
             color: '#71717a', fontSize: '1.05rem', lineHeight: 1.75,
             maxWidth: 400, margin: 0,
           }}>
-            יוגב — מורה נהיגה עם 6 שנות ניסיון, סביבה נעימה, ואווירה שעוזרת גם למי שנרוו.
+            יוגב — מורה נהיגה עם 6 שנות ניסיון, סביבה נעימה, ואווירה שעוזרת גם למי שנלחץ.
           </motion.p>
 
           <motion.div {...fadeUp(0.56)} style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
