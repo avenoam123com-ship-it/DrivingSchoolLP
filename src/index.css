@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: #f4f8ff;
+  color: #0f172a;
+  font-family: 'Heebo', 'Arial', sans-serif;
+  direction: rtl;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+@media (max-width: 768px) {
+  .hero-grid {
+    flex-direction: column !important;
+    gap: 40px !important;
+  }
+  .hero-card {
+    width: 100%;
+    justify-content: center;
+  }
+}
