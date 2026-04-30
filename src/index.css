@@ -12,10 +12,15 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Hero badge blink ── */
+/* ── Animations ── */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.35; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* ── Floating WhatsApp ── */
@@ -40,7 +45,6 @@ body {
   transform: scale(1.1);
   box-shadow: 0 6px 32px rgba(34, 197, 94, 0.6);
 }
-
 .wa-ring {
   position: absolute;
   inset: 0;
@@ -48,11 +52,25 @@ body {
   border: 2px solid #22c55e;
   animation: wa-pulse 2.2s ease-out infinite;
 }
-
 @keyframes wa-pulse {
   0%   { transform: scale(1);   opacity: 0.7; }
   100% { transform: scale(1.7); opacity: 0; }
 }
+
+/* ── Marquee ── */
+.marquee-outer {
+  overflow: hidden;
+  direction: ltr;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.marquee-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
 
 /* ── Responsive hero ── */
 @media (max-width: 768px) {

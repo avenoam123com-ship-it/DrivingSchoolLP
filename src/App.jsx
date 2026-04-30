@@ -14,6 +14,24 @@ const WA_SVG = (
   </svg>
 );
 
+function Wave({ from, to, flip = false }) {
+  const path = flip
+    ? 'M0,60 C360,10 1080,10 1440,60 L1440,60 L0,60 Z'
+    : 'M0,0 C360,50 1080,50 1440,0 L1440,0 L0,0 Z';
+  return (
+    <div style={{ background: to, lineHeight: 0, display: 'block', marginTop: -1 }}>
+      <svg
+        viewBox="0 0 1440 60"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ display: 'block', width: '100%', height: 60 }}
+        preserveAspectRatio="none"
+      >
+        <path d={path} fill={from} />
+      </svg>
+    </div>
+  );
+}
+
 export default function App() {
   return (
     <>
@@ -21,27 +39,23 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
+        <Wave from="#0a0a0a" to="#111111" />
         <WhyMe />
+        <Wave from="#111111" to="#0a0a0a" flip />
         <Testimonials />
+        <Wave from="#0a0a0a" to="#111111" />
         <Contact />
+        <Wave from="#111111" to="#0a0a0a" flip />
       </main>
       <footer style={{
         textAlign: 'center', padding: '32px 24px',
-        borderTop: '1px solid rgba(255,255,255,0.06)',
         background: '#0a0a0a',
         color: '#3f3f46', fontSize: '0.8rem',
       }}>
         🚗 יוגב — מורה נהיגה · באר שבע והסביבה · © 2026
       </footer>
 
-      {/* Floating WhatsApp button */}
-      <a
-        href={WA_LINK}
-        target="_blank"
-        rel="noreferrer"
-        className="wa-float"
-        aria-label="שלח הודעה ב-WhatsApp"
-      >
+      <a href={WA_LINK} target="_blank" rel="noreferrer" className="wa-float" aria-label="שלח הודעה ב-WhatsApp">
         {WA_SVG}
         <span className="wa-ring" />
       </a>
