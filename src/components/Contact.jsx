@@ -9,11 +9,11 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="contact" style={{ padding: '100px 24px', background: '#eef3fb', position: 'relative', overflow: 'hidden' }}>
+    <section id="contact" style={{ padding: '100px 24px', background: '#111111', position: 'relative', overflow: 'hidden' }}>
       <div style={{
         position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
         width: 500, height: 300,
-        background: 'radial-gradient(ellipse, rgba(29,78,216,0.08) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse, rgba(255,255,255,0.03) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
 
@@ -24,14 +24,14 @@ export default function Contact() {
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         style={{ maxWidth: 560, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}
       >
-        <div style={{ fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#1d4ed8', marginBottom: 12 }}>
+        <div style={{ fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#52525b', marginBottom: 12 }}>
           בואו נתחיל
         </div>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 700, color: '#0f172a', lineHeight: 1.2, marginBottom: 16 }}>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 700, color: '#f1f5f9', lineHeight: 1.2, marginBottom: 16 }}>
           שיחה אחת —<br />
-          <span style={{ color: '#1d4ed8' }}>וקובעים שיעור.</span>
+          <span style={{ color: '#a3a3a3' }}>וקובעים שיעור.</span>
         </h2>
-        <p style={{ color: '#4b5a6e', fontSize: '0.97rem', lineHeight: 1.75, marginBottom: 40 }}>
+        <p style={{ color: '#52525b', fontSize: '0.97rem', lineHeight: 1.75, marginBottom: 40 }}>
           כל שאלה, כל פרט — שולחים הודעה או מתקשרים ישירות.<br />
           יוגב עונה אישית, תוך שעות.
         </p>
@@ -45,11 +45,11 @@ export default function Contact() {
             whileTap={{ scale: 0.98 }}
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
-              background: '#16a34a', color: '#fff',
+              background: '#22c55e', color: '#fff',
               fontWeight: 700, fontSize: '1rem',
               padding: '16px 24px', borderRadius: 14,
               textDecoration: 'none',
-              boxShadow: '0 8px 32px rgba(22,163,74,0.2)',
+              boxShadow: '0 8px 32px rgba(34,197,94,0.2)',
             }}
           >
             <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: 22, height: 22 }}>
@@ -64,17 +64,17 @@ export default function Contact() {
             whileTap={{ scale: 0.98 }}
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
-              border: '1.5px solid rgba(26,58,107,0.15)',
-              color: '#1a3a6b', fontWeight: 600, fontSize: '1rem',
+              border: '1px solid rgba(255,255,255,0.1)',
+              color: '#a3a3a3', fontWeight: 600, fontSize: '1rem',
               padding: '16px 24px', borderRadius: 14,
-              textDecoration: 'none', background: '#fff',
+              textDecoration: 'none', background: 'rgba(255,255,255,0.03)',
             }}
           >
             📞 {PHONE}
           </motion.a>
         </div>
 
-        <p style={{ marginTop: 24, fontSize: '0.8rem', color: '#94a3b8' }}>
+        <p style={{ marginTop: 24, fontSize: '0.8rem', color: '#3f3f46' }}>
           ⏱ מענה תוך שעות · ☑ ללא התחייבות
         </p>
       </motion.div>

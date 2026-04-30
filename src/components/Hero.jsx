@@ -27,11 +27,11 @@ export default function Hero() {
       padding: '100px 24px 60px',
       position: 'relative',
       overflow: 'hidden',
+      background: '#0a0a0a',
     }}>
-      {/* Background radial glow */}
       <div style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
-        background: 'radial-gradient(ellipse at 65% 40%, rgba(29,78,216,0.09) 0%, transparent 60%)',
+        background: 'radial-gradient(ellipse at 65% 40%, rgba(255,255,255,0.04) 0%, transparent 60%)',
       }} />
 
       <div
@@ -43,18 +43,18 @@ export default function Hero() {
           position: 'relative', zIndex: 1,
         }}
       >
-        {/* Text — first child → RIGHT in RTL */}
+        {/* Text — RIGHT in RTL */}
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 28 }}>
 
           <motion.div {...fadeUp(0.1)} style={{
             display: 'inline-flex', alignItems: 'center', gap: 8, alignSelf: 'flex-start',
-            background: 'rgba(29,78,216,0.09)', border: '1px solid rgba(29,78,216,0.2)',
-            color: '#1d4ed8', fontSize: '0.77rem', fontWeight: 500,
+            background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)',
+            color: '#e2e8f0', fontSize: '0.77rem', fontWeight: 500,
             padding: '6px 14px', borderRadius: 100,
           }}>
             <span style={{
               width: 7, height: 7, borderRadius: '50%',
-              background: '#1d4ed8', display: 'inline-block',
+              background: '#fff', display: 'inline-block',
               animation: 'blink 2s infinite',
             }} />
             מורה נהיגה · אוטומט · באר שבע והסביבה
@@ -63,20 +63,20 @@ export default function Hero() {
           <div>
             <motion.h1 {...fadeUp(0.2)} style={{
               fontSize: 'clamp(2.4rem, 6vw, 3.8rem)', fontWeight: 800,
-              lineHeight: 1.1, color: '#0f172a', margin: 0,
+              lineHeight: 1.1, color: '#ffffff', margin: 0,
             }}>
               הרישיון שלך
             </motion.h1>
             <motion.h1 {...fadeUp(0.32)} style={{
               fontSize: 'clamp(2.4rem, 6vw, 3.8rem)', fontWeight: 800,
-              lineHeight: 1.1, color: '#1d4ed8', margin: 0,
+              lineHeight: 1.1, color: '#a3a3a3', margin: 0,
             }}>
               מתחיל כאן.
             </motion.h1>
           </div>
 
           <motion.p {...fadeUp(0.44)} style={{
-            color: '#4b5a6e', fontSize: '1.05rem', lineHeight: 1.75,
+            color: '#71717a', fontSize: '1.05rem', lineHeight: 1.75,
             maxWidth: 400, margin: 0,
           }}>
             יוגב — מורה נהיגה עם 6 שנות ניסיון, סביבה נעימה, ואווירה שעוזרת גם למי שנרוו.
@@ -89,7 +89,7 @@ export default function Hero() {
               rel="noreferrer"
               style={{
                 display: 'flex', alignItems: 'center', gap: 8,
-                background: '#16a34a', color: '#fff',
+                background: '#22c55e', color: '#fff',
                 fontWeight: 700, fontSize: '0.95rem',
                 padding: '14px 24px', borderRadius: 12,
                 textDecoration: 'none',
@@ -101,10 +101,10 @@ export default function Hero() {
               href={`tel:${PHONE}`}
               style={{
                 display: 'flex', alignItems: 'center', gap: 8,
-                border: '1.5px solid rgba(26,58,107,0.2)',
-                color: '#1a3a6b', fontWeight: 600, fontSize: '0.95rem',
+                border: '1px solid rgba(255,255,255,0.15)',
+                color: '#e2e8f0', fontWeight: 600, fontSize: '0.95rem',
                 padding: '14px 24px', borderRadius: 12,
-                textDecoration: 'none', background: '#fff',
+                textDecoration: 'none', background: 'rgba(255,255,255,0.04)',
               }}
             >
               📞 {PHONE}
@@ -113,14 +113,14 @@ export default function Hero() {
 
           <motion.div {...fadeUp(0.68)} style={{ display: 'flex', flexWrap: 'wrap', gap: 20 }}>
             {badges.map(t => (
-              <span key={t} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.84rem', color: '#4b5a6e' }}>
-                <span style={{ color: '#1d4ed8' }}>✦</span> {t}
+              <span key={t} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.84rem', color: '#52525b' }}>
+                <span style={{ color: '#a3a3a3' }}>✦</span> {t}
               </span>
             ))}
           </motion.div>
         </div>
 
-        {/* BusinessCard — second child → LEFT in RTL */}
+        {/* BusinessCard — LEFT in RTL */}
         <motion.div
           className="hero-card"
           {...fadeUp(0.3)}

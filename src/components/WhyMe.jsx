@@ -18,21 +18,20 @@ function Card({ card, index }) {
       initial={{ opacity: 0, y: 32 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -4, boxShadow: '0 12px 40px rgba(29,78,216,0.12)' }}
+      whileHover={{ y: -4, borderColor: 'rgba(255,255,255,0.15)' }}
       style={{
-        background: '#fff',
-        border: '1px solid rgba(26,58,107,0.08)',
+        background: '#141414',
+        border: '1px solid rgba(255,255,255,0.07)',
         borderRadius: 20,
         padding: '32px 24px',
-        boxShadow: '0 4px 16px rgba(26,58,107,0.06)',
-        transition: 'box-shadow 0.3s',
+        transition: 'border-color 0.3s',
       }}
     >
       <div style={{ fontSize: '2rem', marginBottom: 14 }}>{card.icon}</div>
-      <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a', marginBottom: 10 }}>
+      <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#f1f5f9', marginBottom: 10 }}>
         {card.title}
       </h3>
-      <p style={{ fontSize: '0.9rem', color: '#64748b', lineHeight: 1.75 }}>{card.desc}</p>
+      <p style={{ fontSize: '0.9rem', color: '#52525b', lineHeight: 1.75 }}>{card.desc}</p>
     </motion.div>
   );
 }
@@ -42,7 +41,7 @@ export default function WhyMe() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="why" style={{ padding: '100px 24px', background: '#eef3fb' }}>
+    <section id="why" style={{ padding: '100px 24px', background: '#111111' }}>
       <div style={{ maxWidth: 960, margin: '0 auto' }}>
         <motion.div
           ref={ref}
@@ -51,12 +50,12 @@ export default function WhyMe() {
           transition={{ duration: 0.6 }}
           style={{ textAlign: 'center', marginBottom: 56 }}
         >
-          <div style={{ fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#1d4ed8', marginBottom: 12 }}>
+          <div style={{ fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#52525b', marginBottom: 12 }}>
             למה יוגב
           </div>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 700, color: '#0f172a', lineHeight: 1.2 }}>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 700, color: '#f1f5f9', lineHeight: 1.2 }}>
             לא רק מורה נהיגה —<br />
-            <span style={{ color: '#1d4ed8' }}>מישהו שרואה אותך.</span>
+            <span style={{ color: '#a3a3a3' }}>מישהו שרואה אותך.</span>
           </h2>
         </motion.div>
 

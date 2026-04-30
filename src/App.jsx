@@ -18,8 +18,9 @@ export default function App() {
       </main>
       <footer style={{
         textAlign: 'center', padding: '32px 24px',
-        background: '#1a3a6b', color: 'rgba(255,255,255,0.5)',
-        fontSize: '0.8rem',
+        borderTop: '1px solid rgba(255,255,255,0.06)',
+        background: '#0a0a0a',
+        color: '#3f3f46', fontSize: '0.8rem',
       }}>
         🚗 יוגב — מורה נהיגה · באר שבע והסביבה · © 2026
       </footer>

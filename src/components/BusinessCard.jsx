@@ -25,14 +25,11 @@ export default function BusinessCard() {
     const py = (e.clientY - rect.top) / rect.height;
     const xRot = (py - 0.5) * -24;
     const yRot = (px - 0.5) * 24;
-    setTransform(
-      `perspective(1200px) rotateX(${xRot}deg) rotateY(${yRot}deg) scale3d(1.04,1.04,1.04)`
-    );
+    setTransform(`perspective(1200px) rotateX(${xRot}deg) rotateY(${yRot}deg) scale3d(1.04,1.04,1.04)`);
     setSpotlightPos({ x: px * 100, y: py * 100 });
   }, []);
 
   const handlePointerEnter = useCallback(() => setIsHovered(true), []);
-
   const handlePointerLeave = useCallback(() => {
     setTransform('perspective(1200px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)');
     setIsHovered(false);
@@ -51,11 +48,12 @@ export default function BusinessCard() {
         willChange: 'transform',
         position: 'relative',
         overflow: 'hidden',
-        background: 'linear-gradient(145deg, #1a3a6b 0%, #1d4ed8 100%)',
+        background: '#141414',
+        border: '1px solid rgba(255,255,255,0.1)',
         borderRadius: 24,
         padding: '40px 32px',
         width: 300,
-        boxShadow: '0 24px 64px rgba(29,78,216,0.28), 0 4px 20px rgba(0,0,0,0.1)',
+        boxShadow: '0 24px 64px rgba(0,0,0,0.6)',
         color: '#fff',
         cursor: 'default',
         userSelect: 'none',
@@ -72,7 +70,7 @@ export default function BusinessCard() {
           width: '200%', height: '200%', borderRadius: '50%',
           left: `${spotlightPos.x}%`, top: `${spotlightPos.y}%`,
           transform: 'translate(-50%,-50%)',
-          background: 'radial-gradient(circle, rgba(255,255,255,0.14) 0%, transparent 40%)',
+          background: 'radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 40%)',
         }} />
       </div>
 
@@ -80,18 +78,17 @@ export default function BusinessCard() {
       <div style={{
         position: 'absolute', top: -50, left: -50,
         width: 160, height: 160, borderRadius: '50%',
-        background: 'rgba(255,255,255,0.06)', pointerEvents: 'none',
+        background: 'rgba(255,255,255,0.03)', pointerEvents: 'none',
       }} />
 
-      {/* Content */}
       <div style={{ position: 'relative', zIndex: 1 }}>
 
         {/* Avatar + Name */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 28 }}>
           <div style={{
             width: 58, height: 58, borderRadius: '50%',
-            background: 'rgba(255,255,255,0.15)',
-            border: '2px solid rgba(255,255,255,0.3)',
+            background: 'rgba(255,255,255,0.08)',
+            border: '1px solid rgba(255,255,255,0.15)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             fontSize: '1.7rem', flexShrink: 0,
           }}>
@@ -100,16 +97,16 @@ export default function BusinessCard() {
           <div>
             <div style={{
               fontSize: '0.62rem', letterSpacing: '0.18em',
-              textTransform: 'uppercase', opacity: 0.65, marginBottom: 4,
+              textTransform: 'uppercase', color: '#71717a', marginBottom: 4,
             }}>
               מורה נהיגה מוסמך
             </div>
-            <div style={{ fontSize: '1.8rem', fontWeight: 800, lineHeight: 1 }}>יוגב</div>
+            <div style={{ fontSize: '1.8rem', fontWeight: 800, lineHeight: 1, color: '#fff' }}>יוגב</div>
           </div>
         </div>
 
         {/* Divider */}
-        <div style={{ height: 1, background: 'rgba(255,255,255,0.15)', marginBottom: 24 }} />
+        <div style={{ height: 1, background: 'rgba(255,255,255,0.08)', marginBottom: 24 }} />
 
         {/* Info rows */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -118,9 +115,9 @@ export default function BusinessCard() {
             { icon: '⚙️', text: 'אוטומט בלבד — פחות לחץ' },
             { icon: '📞', text: '050-422-6444', ltr: true },
           ].map(({ icon, text, ltr }) => (
-            <div key={text} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: '0.88rem' }}>
+            <div key={text} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: '0.88rem', color: '#a3a3a3' }}>
               <span>{icon}</span>
-              <span style={{ opacity: 0.9, ...(ltr ? { direction: 'ltr', display: 'inline-block' } : {}) }}>
+              <span style={ltr ? { direction: 'ltr', display: 'inline-block' } : {}}>
                 {text}
               </span>
             </div>
@@ -130,9 +127,11 @@ export default function BusinessCard() {
         {/* Badge */}
         <div style={{
           marginTop: 26,
-          background: 'rgba(255,255,255,0.12)',
+          background: 'rgba(255,255,255,0.05)',
+          border: '1px solid rgba(255,255,255,0.08)',
           borderRadius: 12, padding: '11px 16px',
-          display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.82rem',
+          display: 'flex', alignItems: 'center', gap: 8,
+          fontSize: '0.82rem', color: '#a3a3a3',
         }}>
           <span>🏆</span>
           <span>6 שנות ניסיון · מאות תלמידים</span>
