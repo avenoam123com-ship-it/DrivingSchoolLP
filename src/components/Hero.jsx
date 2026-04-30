@@ -1,14 +1,9 @@
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import BusinessCard from './BusinessCard';
 
 const PHONE = '0504226444';
 const WA_LINK = `https://wa.me/972${PHONE.slice(1)}`;
-
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 28 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
-});
 
 const WA_ICON = (
   <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: 20, height: 20 }}>
@@ -17,6 +12,52 @@ const WA_ICON = (
 );
 
 const badges = ['6 שנות ניסיון', 'אוטומט בלבד', 'גמישות בשעות', 'באר שבע והסביבה'];
+
+const TYPED_TEXT = 'מתחיל כאן.';
+
+function Typewriter({ startDelay = 900 }) {
+  const [displayed, setDisplayed] = useState('');
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setActive(true), startDelay);
+    return () => clearTimeout(t);
+  }, [startDelay]);
+
+  useEffect(() => {
+    if (!active || displayed.length >= TYPED_TEXT.length) return;
+    const t = setTimeout(
+      () => setDisplayed(TYPED_TEXT.slice(0, displayed.length + 1)),
+      75
+    );
+    return () => clearTimeout(t);
+  }, [active, displayed]);
+
+  const done = displayed.length >= TYPED_TEXT.length;
+
+  return (
+    <span>
+      {displayed}
+      <span style={{
+        display: 'inline-block',
+        width: 3, height: '0.85em',
+        background: '#a3a3a3',
+        marginRight: 4,
+        verticalAlign: 'middle',
+        borderRadius: 1,
+        opacity: done ? 0 : 1,
+        transition: done ? 'opacity 0.4s 0.3s' : 'none',
+        animation: done ? 'none' : 'blink 0.7s steps(1) infinite',
+      }} />
+    </span>
+  );
+}
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 28 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
+});
 
 export default function Hero() {
   return (
@@ -67,11 +108,17 @@ export default function Hero() {
             }}>
               הרישיון שלך
             </motion.h1>
-            <motion.h1 {...fadeUp(0.32)} style={{
-              fontSize: 'clamp(2.4rem, 6vw, 3.8rem)', fontWeight: 800,
-              lineHeight: 1.1, color: '#a3a3a3', margin: 0,
-            }}>
-              מתחיל כאן.
+            <motion.h1
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
+              style={{
+                fontSize: 'clamp(2.4rem, 6vw, 3.8rem)', fontWeight: 800,
+                lineHeight: 1.1, color: '#a3a3a3', margin: 0,
+                minHeight: '1.1em',
+              }}
+            >
+              <Typewriter startDelay={900} />
             </motion.h1>
           </div>
 
@@ -120,13 +167,20 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* BusinessCard — LEFT in RTL */}
+        {/* BusinessCard — LEFT in RTL, floating */}
         <motion.div
           className="hero-card"
-          {...fadeUp(0.3)}
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           style={{ flexShrink: 0, display: 'flex', justifyContent: 'center' }}
         >
-          <BusinessCard />
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <BusinessCard />
+          </motion.div>
         </motion.div>
       </div>
     </section>
