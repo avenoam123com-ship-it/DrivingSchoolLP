@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import WhyMe from './components/WhyMe';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
+import HowItWorks from './components/HowItWorks';
 
 const PHONE = '0504226444';
 const WA_MSG = encodeURIComponent('היי יוגב, ראיתי את האתר שלך ורוצה לשמוע פרטים על שיעורי נהיגה 🙂');
@@ -43,7 +44,9 @@ export default function App() {
         <Wave from="#0a0a0a" to="#111111" />
         <WhyMe />
         <Wave from="#111111" to="#0a0a0a" flip />
-<Testimonials />
+        <HowItWorks />
+        <Wave from="#111111" to="#0a0a0a" flip />
+        <Testimonials />
         <Wave from="#0a0a0a" to="#111111" />
         <Contact />
         <Wave from="#111111" to="#0a0a0a" flip />

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import BusinessCard from './BusinessCard';
+import yogevImg from '../assets/yogev.jpg';
 
 const PHONE = '0504226444';
 const WA_MSG = encodeURIComponent('היי יוגב, ראיתי את האתר שלך ורוצה לשמוע פרטים על שיעורי נהיגה 🙂');
@@ -168,7 +168,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* BusinessCard — LEFT in RTL, floating */}
+        {/* Photo card — LEFT in RTL */}
         <motion.div
           className="hero-card"
           initial={{ opacity: 0, y: 28 }}
@@ -179,8 +179,69 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+            style={{ position: 'relative' }}
           >
-            <BusinessCard />
+            {/* Photo */}
+            <div style={{
+              width: 280,
+              borderRadius: 24,
+              overflow: 'hidden',
+              border: '1px solid rgba(255,255,255,0.1)',
+              boxShadow: '0 32px 80px rgba(0,0,0,0.6)',
+              background: '#141414',
+            }}>
+              <img
+                src={yogevImg}
+                alt="יוגב מורה נהיגה"
+                style={{
+                  width: '100%',
+                  height: 340,
+                  objectFit: 'cover',
+                  objectPosition: 'center 8%',
+                  display: 'block',
+                }}
+              />
+              <div style={{
+                padding: '16px 20px',
+                borderTop: '1px solid rgba(255,255,255,0.07)',
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              }}>
+                <div>
+                  <div style={{ fontWeight: 700, color: '#f1f5f9', fontSize: '1rem' }}>יוגב</div>
+                  <div style={{ color: '#52525b', fontSize: '0.78rem', marginTop: 2 }}>מורה נהיגה מוסמך</div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.78rem', color: '#22c55e', fontWeight: 600 }}>
+                  <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#22c55e', display: 'inline-block', animation: 'blink 2s infinite' }} />
+                  זמין
+                </div>
+              </div>
+            </div>
+
+            {/* Experience badge */}
+            <div style={{
+              position: 'absolute', top: -14, right: -14,
+              background: '#fff', color: '#0a0a0a',
+              fontSize: '0.72rem', fontWeight: 800,
+              padding: '8px 14px', borderRadius: 100,
+              boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
+              whiteSpace: 'nowrap',
+            }}>
+              6 שנות ניסיון
+            </div>
+
+            {/* Pass rate badge */}
+            <div style={{
+              position: 'absolute', bottom: 64, left: -18,
+              background: '#141414',
+              border: '1px solid rgba(255,255,255,0.12)',
+              color: '#f1f5f9',
+              fontSize: '0.72rem', fontWeight: 700,
+              padding: '8px 14px', borderRadius: 12,
+              boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
+              whiteSpace: 'nowrap',
+            }}>
+              🏆 רוב התלמידים עוברים בפעם הראשונה
+            </div>
           </motion.div>
         </motion.div>
       </div>
