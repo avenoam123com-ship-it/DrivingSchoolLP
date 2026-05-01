@@ -85,15 +85,16 @@ export default function BusinessCard() {
 
         {/* Avatar + Name */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 28 }}>
-          <div style={{
-            width: 58, height: 58, borderRadius: '50%',
-            background: 'rgba(255,255,255,0.08)',
-            border: '1px solid rgba(255,255,255,0.15)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '1.7rem', flexShrink: 0,
-          }}>
-            🚗
-          </div>
+          <img
+            src="/yogev.jpg"
+            alt="יוגב"
+            style={{
+              width: 58, height: 58, borderRadius: '50%',
+              objectFit: 'cover', objectPosition: 'center 10%',
+              border: '1px solid rgba(255,255,255,0.15)',
+              flexShrink: 0,
+            }}
+          />
           <div>
             <div style={{
               fontSize: '0.62rem', letterSpacing: '0.18em',

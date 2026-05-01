@@ -16,7 +16,16 @@ export default function Nav() {
     >
       <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <span className="text-2xl">🚗</span>
+          <img
+            src="/yogev.jpg"
+            alt="יוגב"
+            style={{
+              width: 36, height: 36, borderRadius: '50%',
+              objectFit: 'cover', objectPosition: 'center 10%',
+              border: '1.5px solid rgba(255,255,255,0.15)',
+              flexShrink: 0,
+            }}
+          />
           <div>
             <div style={{ fontWeight: 700, color: '#fff', fontSize: '0.9rem', lineHeight: 1 }}>יוגב</div>
             <div style={{ fontSize: '0.72rem', color: '#71717a', lineHeight: 1, marginTop: 3 }}>מורה נהיגה</div>
