@@ -27,7 +27,7 @@ export default function HowItWorks() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="how" ref={ref} style={{ padding: '100px 24px', background: '#111111', position: 'relative', overflow: 'hidden' }}>
+    <section id="how" ref={ref} style={{ padding: '100px 24px', background: '#111111', position: 'relative' }}>
       {/* subtle bg glow */}
       <div style={{
         position: 'absolute', top: '50%', left: '50%',
@@ -72,7 +72,6 @@ export default function HowItWorks() {
                   padding: '36px 28px',
                   display: 'flex', flexDirection: 'column', gap: 16,
                   position: 'relative',
-                  overflow: 'hidden',
                 }}
               >
                 {/* Step number — large background */}
@@ -152,8 +151,9 @@ export default function HowItWorks() {
 
       <style>{`
         @media (max-width: 700px) {
-          .steps-grid { flex-direction: column !important; }
+          .steps-grid { flex-direction: column !important; gap: 8px !important; }
           .step-arrow { transform: rotate(90deg); width: 100% !important; height: 32px; }
+          #how { padding: 64px 16px !important; }
         }
       `}</style>
     </section>
