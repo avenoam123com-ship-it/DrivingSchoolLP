@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import yogevImg from '../assets/yogev.jpg';
+import FallingSigns from './FallingSigns';
 
 const PHONE = '0504226444';
 const WA_MSG = encodeURIComponent('היי יוגב, ראיתי את האתר שלך ורוצה לשמוע פרטים על שיעורי נהיגה 🙂');
@@ -71,6 +72,8 @@ export default function Hero() {
       overflow: 'hidden',
       background: '#0a0a0a',
     }}>
+      <FallingSigns />
+
       <div style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
         background: 'radial-gradient(ellipse at 65% 40%, rgba(255,255,255,0.04) 0%, transparent 60%)',
