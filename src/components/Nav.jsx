@@ -1,4 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
+import yogevImg from '../assets/yogev.jpg';
 
 const PHONE = '0504226444';
 const WA_LINK = `https://wa.me/972${PHONE.slice(1)}`;
@@ -17,7 +18,7 @@ export default function Nav() {
       <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-3">
           <img
-            src="/yogev.jpg"
+            src={yogevImg}
             alt="יוגב"
             style={{
               width: 36, height: 36, borderRadius: '50%',

@@ -1,4 +1,5 @@
 import { useRef, useState, useCallback } from 'react';
+import yogevImg from '../assets/yogev.jpg';
 
 const PHONE = '0504226444';
 const WA_LINK = `https://wa.me/972${PHONE.slice(1)}`;
@@ -86,7 +87,7 @@ export default function BusinessCard() {
         {/* Avatar + Name */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 28 }}>
           <img
-            src="/yogev.jpg"
+            src={yogevImg}
             alt="יוגב"
             style={{
               width: 58, height: 58, borderRadius: '50%',
