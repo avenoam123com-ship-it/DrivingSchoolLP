@@ -6,7 +6,8 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 
 const PHONE = '0504226444';
-const WA_LINK = `https://wa.me/972${PHONE.slice(1)}`;
+const WA_MSG = encodeURIComponent('היי יוגב, ראיתי את האתר שלך ורוצה לשמוע פרטים על שיעורי נהיגה 🙂');
+const WA_LINK = `https://wa.me/972${PHONE.slice(1)}?text=${WA_MSG}`;
 
 const WA_SVG = (
   <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: 28, height: 28 }}>

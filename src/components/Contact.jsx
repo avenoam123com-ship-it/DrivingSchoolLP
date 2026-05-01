@@ -2,7 +2,8 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const PHONE = '0504226444';
-const WA_LINK = `https://wa.me/972${PHONE.slice(1)}`;
+const WA_MSG = encodeURIComponent('היי יוגב, ראיתי את האתר שלך ורוצה לשמוע פרטים על שיעורי נהיגה 🙂');
+const WA_LINK = `https://wa.me/972${PHONE.slice(1)}?text=${WA_MSG}`;
 
 export default function Contact() {
   const ref = useRef(null);

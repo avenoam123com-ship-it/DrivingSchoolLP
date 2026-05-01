@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import BusinessCard from './BusinessCard';
 
 const PHONE = '0504226444';
-const WA_LINK = `https://wa.me/972${PHONE.slice(1)}`;
+const WA_MSG = encodeURIComponent('היי יוגב, ראיתי את האתר שלך ורוצה לשמוע פרטים על שיעורי נהיגה 🙂');
+const WA_LINK = `https://wa.me/972${PHONE.slice(1)}?text=${WA_MSG}`;
 
 const WA_ICON = (
   <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: 20, height: 20 }}>
