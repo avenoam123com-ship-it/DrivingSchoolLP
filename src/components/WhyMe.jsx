@@ -50,13 +50,22 @@ export default function WhyMe() {
           transition={{ duration: 0.6 }}
           style={{ textAlign: 'center', marginBottom: 56 }}
         >
-          <div style={{ fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#52525b', marginBottom: 12 }}>
-            למה יוגב
+          <div style={{
+            display: 'inline-block',
+            background: '#1a5c2a',
+            border: '3px solid rgba(255,255,255,0.82)',
+            borderRadius: 8,
+            padding: '14px 32px 16px',
+            boxShadow: '0 6px 28px rgba(0,0,0,0.45)',
+          }}>
+            <div style={{ fontSize: '0.62rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: 6 }}>
+              למה יוגב
+            </div>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.4rem)', fontWeight: 700, color: '#ffffff', lineHeight: 1.2, margin: 0 }}>
+              לא רק מורה נהיגה —<br />
+              <span style={{ opacity: 0.8 }}>מישהו שרואה אותך.</span>
+            </h2>
           </div>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 700, color: '#f1f5f9', lineHeight: 1.2 }}>
-            לא רק מורה נהיגה —<br />
-            <span style={{ color: '#a3a3a3' }}>מישהו שרואה אותך.</span>
-          </h2>
         </motion.div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 20 }}>

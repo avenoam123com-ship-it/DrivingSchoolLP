@@ -46,12 +46,21 @@ export default function HowItWorks() {
           transition={{ duration: 0.7 }}
           style={{ textAlign: 'center', marginBottom: 64 }}
         >
-          <div style={{ fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#52525b', marginBottom: 12 }}>
-            תהליך פשוט
+          <div style={{
+            display: 'inline-block',
+            background: '#1a5c2a',
+            border: '3px solid rgba(255,255,255,0.82)',
+            borderRadius: 8,
+            padding: '14px 32px 16px',
+            boxShadow: '0 6px 28px rgba(0,0,0,0.45)',
+          }}>
+            <div style={{ fontSize: '0.62rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: 6 }}>
+              תהליך פשוט
+            </div>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.4rem)', fontWeight: 700, color: '#ffffff', lineHeight: 1.2, margin: 0 }}>
+              מהשיחה הראשונה — עד הרישיון
+            </h2>
           </div>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 700, color: '#f1f5f9', margin: 0, lineHeight: 1.2 }}>
-            מהשיחה הראשונה — עד הרישיון
-          </h2>
         </motion.div>
 
         {/* Steps — flat structure so arrows don't steal width from cards */}

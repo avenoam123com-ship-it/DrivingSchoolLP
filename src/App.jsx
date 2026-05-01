@@ -5,6 +5,7 @@ import WhyMe from './components/WhyMe';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import HowItWorks from './components/HowItWorks';
+import RoadDivider from './components/RoadDivider';
 
 const PHONE = '0504226444';
 const WA_MSG = encodeURIComponent('היי יוגב, ראיתי את האתר שלך ורוצה לשמוע פרטים על שיעורי נהיגה 🙂');
@@ -16,24 +17,6 @@ const WA_SVG = (
   </svg>
 );
 
-function Wave({ from, to, flip = false }) {
-  const path = flip
-    ? 'M0,60 C360,10 1080,10 1440,60 L1440,60 L0,60 Z'
-    : 'M0,0 C360,50 1080,50 1440,0 L1440,0 L0,0 Z';
-  return (
-    <div style={{ background: to, lineHeight: 0, display: 'block', marginTop: -1 }}>
-      <svg
-        viewBox="0 0 1440 60"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ display: 'block', width: '100%', height: 60 }}
-        preserveAspectRatio="none"
-      >
-        <path d={path} fill={from} />
-      </svg>
-    </div>
-  );
-}
-
 export default function App() {
   return (
     <>
@@ -41,15 +24,14 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
-        <Wave from="#0a0a0a" to="#111111" />
+        <RoadDivider />
         <WhyMe />
-        <Wave from="#111111" to="#0a0a0a" flip />
+        <RoadDivider />
         <HowItWorks />
-        <Wave from="#111111" to="#0a0a0a" flip />
+        <RoadDivider />
         <Testimonials />
-        <Wave from="#0a0a0a" to="#111111" />
+        <RoadDivider />
         <Contact />
-        <Wave from="#111111" to="#0a0a0a" flip />
       </main>
       <footer style={{
         textAlign: 'center', padding: '32px 24px',
