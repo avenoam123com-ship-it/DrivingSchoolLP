@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import yogevImg from '../assets/yogev.jpg';
 import FallingSigns from './FallingSigns';
@@ -62,8 +62,19 @@ const fadeUp = (delay = 0) => ({
 });
 
 export default function Hero() {
+  const mouseX = useMotionValue(0.5);
+  const mouseY = useMotionValue(0.5);
+  const springX = useSpring(useTransform(mouseX, [0, 1], [-28, 28]), { stiffness: 80, damping: 25 });
+  const springY = useSpring(useTransform(mouseY, [0, 1], [-14, 14]), { stiffness: 80, damping: 25 });
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width);
+    mouseY.set((e.clientY - rect.top) / rect.height);
+  };
+
   return (
-    <section style={{
+    <section onMouseMove={handleMouseMove} style={{
       minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
@@ -79,19 +90,17 @@ export default function Hero() {
         background: 'radial-gradient(ellipse at 65% 40%, rgba(255,255,255,0.04) 0%, transparent 60%)',
       }} />
 
-      {/* Road perspective at bottom */}
-      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 220, pointerEvents: 'none', zIndex: 0 }}>
+      {/* Road perspective at bottom — follows mouse */}
+      <motion.div
+        style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 220, pointerEvents: 'none', zIndex: 0, x: springX, y: springY }}
+      >
         <svg viewBox="0 0 1440 220" preserveAspectRatio="none" style={{ width: '100%', height: '100%' }}>
-          {/* Asphalt surface */}
           <polygon points="580,0 860,0 1440,220 0,220" fill="#151515" opacity="0.55" />
-          {/* Left white shoulder line */}
           <line x1="580" y1="0" x2="0" y2="220" stroke="rgba(255,255,255,0.22)" strokeWidth="2.5" />
-          {/* Right white shoulder line */}
           <line x1="860" y1="0" x2="1440" y2="220" stroke="rgba(255,255,255,0.22)" strokeWidth="2.5" />
-          {/* Center yellow dashed line */}
           <line x1="720" y1="0" x2="720" y2="220" stroke="rgba(255,210,0,0.35)" strokeWidth="2.5" strokeDasharray="18,14" />
         </svg>
-      </div>
+      </motion.div>
 
       <div
         className="hero-grid"

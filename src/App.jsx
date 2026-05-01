@@ -5,7 +5,6 @@ import WhyMe from './components/WhyMe';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import HowItWorks from './components/HowItWorks';
-import RoadDivider from './components/RoadDivider';
 
 const PHONE = '0504226444';
 const WA_MSG = encodeURIComponent('היי יוגב, ראיתי את האתר שלך ורוצה לשמוע פרטים על שיעורי נהיגה 🙂');
@@ -24,13 +23,9 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
-        <RoadDivider />
         <WhyMe />
-        <RoadDivider />
         <HowItWorks />
-        <RoadDivider />
         <Testimonials />
-        <RoadDivider />
         <Contact />
       </main>
       <footer style={{
