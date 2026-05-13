@@ -72,6 +72,9 @@ body {
 }
 .marquee-track:hover { animation-play-state: paused; }
 
+/* ── Scroll hint arrow — desktop hidden ── */
+.scroll-hint { display: none; }
+
 /* ── WhyMe snap scroll (mobile) ── */
 .why-snap-wrapper {
   display: grid;
@@ -80,20 +83,25 @@ body {
 }
 
 @media (max-width: 768px) {
+  .scroll-hint { display: flex; }
   .why-snap-wrapper {
     display: flex;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
     scrollbar-width: none;
     gap: 12px;
     padding-bottom: 4px;
+    align-items: stretch;
   }
   .why-snap-wrapper::-webkit-scrollbar { display: none; }
   .why-snap-card {
     min-width: 78vw;
     scroll-snap-align: start;
     flex-shrink: 0;
+    touch-action: pan-x;
   }
 }
 

@@ -126,7 +126,8 @@ export default function AboutSection() {
         </motion.div>
 
         {/* WhyMe cards — snap scroll on mobile, grid on desktop */}
-        <div className="why-snap-wrapper" style={{ marginBottom: 56 }}>
+        <div style={{ position: 'relative', marginBottom: 56 }}>
+        <div className="why-snap-wrapper">
           {whyCards.map((card, i) => (
             <motion.div
               key={i}
@@ -154,7 +155,33 @@ export default function AboutSection() {
           ))}
         </div>
 
-      </div>
+        {/* Scroll hint arrow — mobile only, points left (RTL scroll direction) */}
+        <motion.div
+          className="scroll-hint"
+          animate={{ x: [0, -5, 0] }}
+          transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
+          style={{
+            position: 'absolute',
+            left: 0,
+            top: '50%',
+            transform: 'translateY(-50%)',
+            display: 'flex',
+            alignItems: 'center',
+            pointerEvents: 'none',
+          }}
+        >
+          <svg viewBox="0 0 24 24" fill="none" width="22" height="22" style={{ flexShrink: 0 }}>
+            <path d="M15 6l-6 6 6 6" stroke="#71717a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <div style={{
+            width: 40,
+            height: 90,
+            background: 'linear-gradient(to right, #111111 50%, transparent)',
+            flexShrink: 0,
+          }} />
+        </motion.div>
+
+        </div>
 
       {/* ── Steps — same dark background, green accents ── */}
       <div style={{ maxWidth: 1000, margin: '0 auto', paddingBottom: 90 }}>
