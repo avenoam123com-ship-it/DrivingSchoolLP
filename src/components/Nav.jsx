@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import yogevImg from '../assets/yogev.jpg';
+import yogevImg from '../assets/yogev-car.png';
+import lamedSign from '../assets/lamed-sign.jpg';
 
 const PHONE = '0504226444';
 const WA_LINK = `https://wa.me/972${PHONE.slice(1)}`;
@@ -22,7 +23,7 @@ export default function Nav() {
             alt="יוגב"
             style={{
               width: 36, height: 36, borderRadius: '50%',
-              objectFit: 'cover', objectPosition: 'center 10%',
+              objectFit: 'cover', objectPosition: 'center 25%',
               border: '1.5px solid rgba(255,255,255,0.15)',
               flexShrink: 0,
             }}
@@ -31,6 +32,12 @@ export default function Nav() {
             <div style={{ fontWeight: 700, color: '#fff', fontSize: '0.9rem', lineHeight: 1 }}>יוגב</div>
             <div style={{ fontSize: '0.72rem', color: '#71717a', lineHeight: 1, marginTop: 3 }}>מורה נהיגה</div>
           </div>
+          <div style={{ width: 1, height: 28, background: 'rgba(255,255,255,0.1)', flexShrink: 0 }} />
+          <img
+            src={lamedSign}
+            alt="רכב לומד"
+            style={{ width: 26, height: 26, borderRadius: 4, opacity: 0.75, flexShrink: 0 }}
+          />
         </div>
 
         <nav className="hidden md:flex items-center gap-6" style={{ fontSize: '0.88rem' }}>

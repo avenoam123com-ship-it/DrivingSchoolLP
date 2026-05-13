@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   background: #0a0a0a;
@@ -72,6 +72,31 @@ body {
 }
 .marquee-track:hover { animation-play-state: paused; }
 
+/* ── WhyMe snap scroll (mobile) ── */
+.why-snap-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .why-snap-wrapper {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 12px;
+    padding-bottom: 4px;
+  }
+  .why-snap-wrapper::-webkit-scrollbar { display: none; }
+  .why-snap-card {
+    min-width: 78vw;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+}
+
 /* ── Responsive hero ── */
 @media (max-width: 768px) {
   .hero-grid {
@@ -81,5 +106,19 @@ body {
   .hero-card {
     width: 100%;
     justify-content: center;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .stats-row {
+    flex-direction: column !important;
+  }
+  .stats-row > div {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 32px 0 !important;
+  }
+  .stats-row > div:last-child {
+    border-bottom: none !important;
   }
 }
