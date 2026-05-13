@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import yogevImg from '../assets/yogev-car.png';
+import yogevImg from '../assets/yogev-car.jpg';
 import lamedSign from '../assets/lamed-sign.jpg';
 
 const PHONE = '0504226444';

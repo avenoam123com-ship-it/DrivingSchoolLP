@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import yogevImg from '../assets/yogev-car.png';
+import yogevImg from '../assets/yogev-car.jpg';
 import FallingSigns from './FallingSigns';
 import DrivingScene from './DrivingScene';
 
