@@ -183,6 +183,8 @@ export default function AboutSection() {
 
         </div>
 
+      </div>{/* end maxWidth 1000 */}
+
       {/* ── Steps — same dark background, green accents ── */}
       <div style={{ maxWidth: 1000, margin: '0 auto', paddingBottom: 90 }}>
 
