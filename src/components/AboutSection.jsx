@@ -100,6 +100,13 @@ export default function AboutSection() {
   const headerInView = useInView(headerRef, { once: true, margin: '-80px' });
   const stepsRef = useRef(null);
   const stepsInView = useInView(stepsRef, { once: true, margin: '-80px' });
+  const snapRef = useRef(null);
+
+  const scrollNext = () => {
+    if (!snapRef.current) return;
+    const cardWidth = snapRef.current.querySelector('.why-snap-card')?.offsetWidth || 280;
+    snapRef.current.scrollBy({ left: -(cardWidth + 12), behavior: 'smooth' });
+  };
 
   return (
     <section id="why" style={{ padding: '90px 24px', background: '#111111' }}>
@@ -126,8 +133,7 @@ export default function AboutSection() {
         </motion.div>
 
         {/* WhyMe cards — snap scroll on mobile, grid on desktop */}
-        <div style={{ position: 'relative', marginBottom: 56 }}>
-        <div className="why-snap-wrapper">
+        <div className="why-snap-wrapper" ref={snapRef} style={{ marginBottom: 16 }}>
           {whyCards.map((card, i) => (
             <motion.div
               key={i}
@@ -139,49 +145,44 @@ export default function AboutSection() {
               whileHover={{ y: -4, borderColor: 'rgba(245,158,11,0.2)' }}
               style={{
                 background: '#161616', border: '1px solid rgba(255,255,255,0.07)',
-                borderRadius: 18, padding: '24px 20px', transition: 'border-color 0.3s',
+                borderRadius: 18, padding: '20px 16px', transition: 'border-color 0.3s',
               }}
             >
               <div style={{
-                width: 46, height: 46, borderRadius: 12, marginBottom: 16,
+                width: 40, height: 40, borderRadius: 10, marginBottom: 12,
                 background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.18)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
                 <card.Icon />
               </div>
-              <h3 style={{ fontSize: '0.98rem', fontWeight: 700, color: '#f1f5f9', marginBottom: 8 }}>{card.title}</h3>
-              <p style={{ fontSize: '0.85rem', color: '#52525b', lineHeight: 1.7, margin: 0 }}>{card.desc}</p>
+              <h3 style={{ fontSize: '0.92rem', fontWeight: 700, color: '#f1f5f9', marginBottom: 6 }}>{card.title}</h3>
+              <p style={{ fontSize: '0.82rem', color: '#52525b', lineHeight: 1.65, margin: 0 }}>{card.desc}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Scroll hint arrow — mobile only, points left (RTL scroll direction) */}
-        <motion.div
+        {/* Scroll arrow — centered below cards, mobile only */}
+        <motion.button
           className="scroll-hint"
+          onClick={scrollNext}
           animate={{ x: [0, -5, 0] }}
-          transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
           style={{
-            position: 'absolute',
-            left: 0,
-            top: '50%',
-            transform: 'translateY(-50%)',
-            display: 'flex',
-            alignItems: 'center',
-            pointerEvents: 'none',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+            margin: '0 auto 40px',
+            background: 'rgba(255,255,255,0.05)',
+            border: '1px solid rgba(255,255,255,0.1)',
+            borderRadius: 100,
+            padding: '8px 18px',
+            color: '#71717a', fontSize: '0.78rem', fontWeight: 500,
+            cursor: 'pointer',
           }}
         >
-          <svg viewBox="0 0 24 24" fill="none" width="22" height="22" style={{ flexShrink: 0 }}>
-            <path d="M15 6l-6 6 6 6" stroke="#71717a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+            <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <div style={{
-            width: 40,
-            height: 90,
-            background: 'linear-gradient(to right, #111111 50%, transparent)',
-            flexShrink: 0,
-          }} />
-        </motion.div>
-
-        </div>
+          הכרטיס הבא
+        </motion.button>
 
       </div>{/* end maxWidth 1000 */}
 
