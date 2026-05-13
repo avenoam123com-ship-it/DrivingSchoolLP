@@ -1,7 +1,8 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import yogevImg from '../assets/yogev.jpg';
+import yogevImg from '../assets/yogev-car.png';
 import FallingSigns from './FallingSigns';
+import DrivingScene from './DrivingScene';
 
 const PHONE = '0504226444';
 const WA_MSG = encodeURIComponent('היי יוגב, ראיתי את האתר שלך ורוצה לשמוע פרטים על שיעורי נהיגה 🙂');
@@ -13,8 +14,8 @@ const WA_ICON = (
   </svg>
 );
 
+const AMBER = '#F59E0B';
 const badges = ['6 שנות ניסיון', 'אוטומט בלבד', 'גמישות בשעות', 'באר שבע והסביבה'];
-
 const TYPED_TEXT = 'מתחיל כאן.';
 
 function Typewriter({ startDelay = 900 }) {
@@ -64,6 +65,7 @@ const fadeUp = (delay = 0) => ({
 export default function Hero() {
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
+
   const springX = useSpring(useTransform(mouseX, [0, 1], [-28, 28]), { stiffness: 80, damping: 25 });
   const springY = useSpring(useTransform(mouseY, [0, 1], [-14, 14]), { stiffness: 80, damping: 25 });
 
@@ -90,17 +92,7 @@ export default function Hero() {
         background: 'radial-gradient(ellipse at 65% 40%, rgba(255,255,255,0.04) 0%, transparent 60%)',
       }} />
 
-      {/* Road perspective at bottom — follows mouse */}
-      <motion.div
-        style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 220, pointerEvents: 'none', zIndex: 0, x: springX, y: springY }}
-      >
-        <svg viewBox="0 0 1440 220" preserveAspectRatio="none" style={{ width: '100%', height: '100%' }}>
-          <polygon points="580,0 860,0 1440,220 0,220" fill="#151515" opacity="0.55" />
-          <line x1="580" y1="0" x2="0" y2="220" stroke="rgba(255,255,255,0.22)" strokeWidth="2.5" />
-          <line x1="860" y1="0" x2="1440" y2="220" stroke="rgba(255,255,255,0.22)" strokeWidth="2.5" />
-          <line x1="720" y1="0" x2="720" y2="220" stroke="rgba(255,210,0,0.35)" strokeWidth="2.5" strokeDasharray="18,14" />
-        </svg>
-      </motion.div>
+      <DrivingScene springX={springX} springY={springY} />
 
       <div
         className="hero-grid"
@@ -108,7 +100,7 @@ export default function Hero() {
           maxWidth: 1060, width: '100%', margin: '0 auto',
           display: 'flex', flexDirection: 'row',
           alignItems: 'center', gap: 64,
-          position: 'relative', zIndex: 1,
+          position: 'relative', zIndex: 2,
         }}
       >
         {/* Text — RIGHT in RTL */}
@@ -122,7 +114,7 @@ export default function Hero() {
           }}>
             <span style={{
               width: 7, height: 7, borderRadius: '50%',
-              background: '#fff', display: 'inline-block',
+              background: AMBER, display: 'inline-block',
               animation: 'blink 2s infinite',
             }} />
             מורה נהיגה · אוטומט · באר שבע והסביבה
@@ -153,7 +145,7 @@ export default function Hero() {
             color: '#71717a', fontSize: '1.05rem', lineHeight: 1.75,
             maxWidth: 400, margin: 0,
           }}>
-            יוגב — מורה נהיגה עם 6 שנות ניסיון, סביבה נעימה, ואווירה שעוזרת גם למי שנלחץ.
+            יוגב — מורה נהיגה עם 6 שנות ניסיון. מלמד צעירים ומבוגרים כאחד, בסביבה נעימה ובלי לחץ.
           </motion.p>
 
           <motion.div {...fadeUp(0.56)} style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
@@ -188,7 +180,7 @@ export default function Hero() {
           <motion.div {...fadeUp(0.68)} style={{ display: 'flex', flexWrap: 'wrap', gap: 20 }}>
             {badges.map(t => (
               <span key={t} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.84rem', color: '#52525b' }}>
-                <span style={{ color: '#a3a3a3' }}>✦</span> {t}
+                <span style={{ color: AMBER }}>✦</span> {t}
               </span>
             ))}
           </motion.div>
@@ -207,9 +199,8 @@ export default function Hero() {
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
             style={{ position: 'relative' }}
           >
-            {/* Photo */}
             <div style={{
-              width: 280,
+              width: 320,
               borderRadius: 24,
               overflow: 'hidden',
               border: '1px solid rgba(255,255,255,0.1)',
@@ -221,14 +212,14 @@ export default function Hero() {
                 alt="יוגב מורה נהיגה"
                 style={{
                   width: '100%',
-                  height: 340,
+                  height: 380,
                   objectFit: 'cover',
-                  objectPosition: 'center 8%',
+                  objectPosition: 'center 55%',
                   display: 'block',
                 }}
               />
               <div style={{
-                padding: '16px 20px',
+                padding: '14px 20px',
                 borderTop: '1px solid rgba(255,255,255,0.07)',
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               }}>
@@ -241,9 +232,17 @@ export default function Hero() {
                   זמין
                 </div>
               </div>
+              <div style={{
+                padding: '10px 20px',
+                borderTop: '1px solid rgba(255,255,255,0.07)',
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                background: 'rgba(245,158,11,0.03)',
+              }}>
+                <div style={{ fontSize: '0.72rem', color: '#52525b' }}>חבילה מלאה · טסט פנימי + חיצוני</div>
+                <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#22c55e' }}>החל מ-₪5,000</div>
+              </div>
             </div>
 
-            {/* Experience badge */}
             <div style={{
               position: 'absolute', top: -14, right: -14,
               background: '#fff', color: '#0a0a0a',
@@ -255,7 +254,6 @@ export default function Hero() {
               6 שנות ניסיון
             </div>
 
-            {/* Pass rate badge */}
             <div style={{
               position: 'absolute', bottom: 64, left: -18,
               background: '#141414',

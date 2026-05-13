@@ -23,7 +23,7 @@ export default function Nav() {
             alt="יוגב"
             style={{
               width: 36, height: 36, borderRadius: '50%',
-              objectFit: 'cover', objectPosition: 'center 25%',
+              objectFit: 'cover', objectPosition: 'center 40%',
               border: '1.5px solid rgba(255,255,255,0.15)',
               flexShrink: 0,
             }}
